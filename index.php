@@ -2,14 +2,6 @@
 include_once 'config/Database.php';
 include_once 'class/User.php';
 
-function log_action($msg) {
-        $logFile = './log.log';
-        $fp = @fopen($logFile, 'a+');
-        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
-        @fclose($fp);
-        return TRUE;
-    }
-
 $database = new Database();
 $db = $database->getConnection();
 
