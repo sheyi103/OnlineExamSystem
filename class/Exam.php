@@ -95,23 +95,24 @@ class Exam {
 	public function insert(){
 
 		//  log_action("INSIDE INSERT " . $this->exam_title);
-		// var_dump($this->exam_title);
 		
 		if($this->exam_title) {
-			$queryInsert = "INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question, marks_per_right_answer,marks_per_wrong_answer, status) VALUES(?,?,?,?,?,?,?)";	
-				var_dump($this->queryInsert);			
-			$stmt = $this->conn->prepare($queryInsert);
 
-			// $stmt = $this->conn->prepare("INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question,marks_per_right_answer,marks_per_wrong_answer,status) VALUES(?,?,?,?,?,?,?)");
+
+			$stmt = $this->conn->prepare("
+			INSERT INTO ".$this->examTable."(user_id, exam_title,exam_datetime, duration, total_question, marks_per_right_answer,marks_per_wrong_answer,created_on,status,exam_code)
+			VALUES(?,?,?,?,?,?,?,?,?,?)");
 		
-			// $this->exam_title = htmlspecialchars(strip_tags($this->exam_title));			
-			// $this->duration = htmlspecialchars(strip_tags($this->duration));
-			// $this->total_question = htmlspecialchars(strip_tags($this->total_question));
-			// $this->marks_per_right_answer = htmlspecialchars(strip_tags($this->marks_per_right_answer));
-			// $this->marks_per_wrong_answer = htmlspecialchars(strip_tags($this->marks_per_wrong_answer));
-			// $this->status = htmlspecialchars(strip_tags($this->status));			
+			$this->exam_title = htmlspecialchars(strip_tags($this->exam_title));	
+			$this->exam_datetime = htmlspecialchars(strip_tags($this->exam_datetime));		
+			$this->duration = htmlspecialchars(strip_tags($this->duration));
+			$this->total_question = htmlspecialchars(strip_tags($this->total_question));
+			$this->marks_per_right_answer = htmlspecialchars(strip_tags($this->marks_per_right_answer));
+			$this->marks_per_wrong_answer = htmlspecialchars(strip_tags($this->marks_per_wrong_answer));
+			$this->status = htmlspecialchars(strip_tags($this->status));			
+			$this->exam_code = htmlspecialchars(strip_tags($this->exam_code));			
 			
-			$stmt->bind_param("ississs", $_SESSION["userid"], $this->exam_title, $this->duration, $this->total_question, $this->marks_per_right_answer, $this->marks_per_wrong_answer, $this->status);
+			$stmt->bind_param("ississs", $_SESSION["userid"], $this->exam_title,$this->exam_datetime, $this->duration, $this->total_question, $this->marks_per_right_answer, $this->marks_per_wrong_answer, $this->created_on,$this->status,$this->exam_code);
 			$result = $stmt->execute();	
 			if($result){
 				 log_action("Successful ");

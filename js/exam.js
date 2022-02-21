@@ -65,6 +65,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('#save').attr('disabled','disabled');
 		var formData = $(this).serialize(); 
+		console.log(formData);
 		$.ajax({
 			url:"exam_action.php",
 			method:"POST",

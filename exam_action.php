@@ -18,12 +18,15 @@ if(!empty($_POST['action']) && $_POST['action'] == 'getExam') {
 
 if(!empty($_POST['action']) && $_POST['action'] == 'addExam') {	
 	
-	$exam->exam_title = $_POST["exam_title"];    
+	$exam->exam_title = $_POST["exam_title"];
+    $exam->exam_datetime = $_POST["exam_datetime"];
 	$exam->duration = $_POST["exam_duration"];
 	$exam->total_question = $_POST["total_question"];
 	$exam->marks_per_right_answer = $_POST["marks_right_answer"];
 	$exam->marks_per_wrong_answer = $_POST["marks_wrong_answer"];
+	$exam->created_on = date("Y-m-d h:i:s");
 	$exam->status = $_POST["status"];
+	$exam->exam_code = $_POST["exam_code"];
 	$exam->insert();
 }
 

@@ -66,7 +66,12 @@ include('inc/header.php');
 						<div class="form-group"
 							<label for="project" class="control-label">Exam Title</label>
 							<input type="text" class="form-control" id="exam_title" name="exam_title" placeholder="Exam title" required>			
-						</div>						
+						</div>		
+
+						<div class="form-group"
+							<label for="project" class="control-label">Due Date</label>
+							<input type="datetime-local" class="form-control" id="exam_datetime" name="exam_datetime" placeholder="Exam date" >			
+					 </div>
 						
 						<div class="form-group"
 							<label for="project" class="control-label">Duration</label>
@@ -135,6 +140,11 @@ include('inc/header.php');
 								<option value="Completed">Completed</option>
 							</select>			
 						</div>
+
+						<div class="form-group"
+							<label for="project" class="control-label">Exam Code</label>
+							<input type="text" class="form-control" id="exam_code" name="exam_code" placeholder="Exam code" required>			
+						</div>	
 								
 					</div>
 					<div class="modal-footer">
