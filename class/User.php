@@ -14,7 +14,7 @@ class User {
 				SELECT * FROM ".$this->userTable." 
 				WHERE email = ? AND password = ?";			
 			$stmt = $this->conn->prepare($sqlQuery);
-			$sr = serialize($stmt)
+			$sr = serialize($stmt);
 			log_action($sr);
 			$password = md5($this->password);			
 			$stmt->bind_param("sss", $this->email, $password);	
