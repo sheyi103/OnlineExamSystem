@@ -22,25 +22,18 @@ $(document).ready(function(){
 	});	
 	
 	$('#addExam').click(function(){
-		$('#examModal').modal('show');
+		console.log("insode the add exam method");
+		$('#examModal').modal({
+			backdrop: 'static',
+			keyboard: false
+		});
 		$('#examForm')[0].reset();
-		$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");
-		$('#action').val('addExam');
-		$('#save').val('Save');
-		// $("#examModal").on("shown.bs.modal", function () { 
-		// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
-		// 	$('#action').val('addExam');
-		// 	$('#save').val('Save');
-		// });
+		$("#examModal").on("shown.bs.modal", function () { 
+			$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
+			$('#action').val('addExam');
+			$('#save').val('Save');
+		});
 	});		
-
-	// $('#addUser').click(function(){
-	// 	$('#userModal').modal('show');
-	// 	$('#userForm')[0].reset();
-	// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add User");
-	// 	$('#action').val('addUser');
-	// 	$('#save').val('Save');
-	// });	
 	
 	$("#examListing").on('click', '.update', function(){
 		var id = $(this).attr("id");
