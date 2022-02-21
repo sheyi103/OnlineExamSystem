@@ -14,6 +14,7 @@ class User {
 				SELECT * FROM ".$this->userTable." 
 				WHERE email = ? AND password = ?";			
 			$stmt = $this->conn->prepare($sqlQuery);
+			log_action($stmt);
 			$password = md5($this->password);			
 			$stmt->bind_param("sss", $this->email, $password);	
 			$stmt->execute();
@@ -183,4 +184,12 @@ class User {
 		}
 	}
 }
+
+ function log_action($msg) {
+        $logFile = './log.log';
+        $fp = @fopen($logFile, 'a+');
+        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
+        @fclose($fp);
+        return TRUE;
+    }
 ?>
