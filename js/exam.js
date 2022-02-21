@@ -24,11 +24,14 @@ $(document).ready(function(){
 	$('#addExam').click(function(){
 		$('#examModal').modal('show');
 		$('#examForm')[0].reset();
-		$("#examModal").on("shown.bs.modal", function () { 
-			$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
-			$('#action').val('addExam');
-			$('#save').val('Save');
-		});
+		$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");
+		$('#action').val('addExam');
+		$('#save').val('Save');
+		// $("#examModal").on("shown.bs.modal", function () { 
+		// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
+		// 	$('#action').val('addExam');
+		// 	$('#save').val('Save');
+		// });
 	});		
 
 	// $('#addUser').click(function(){
