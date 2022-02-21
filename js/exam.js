@@ -23,17 +23,19 @@ $(document).ready(function(){
 	
 	$('#addExam').click(function(){
 		console.log("insode the add exam method");
-		$('#examModal').modal({
-			backdrop: 'static',
-			keyboard: false
-		});
+		$('#examModal').modal('show');
 		$('#examForm')[0].reset();
-		$("#examModal").on("shown.bs.modal", function () { 
-			$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
-			$('#action').val('addExam');
-			$('#save').val('Save');
-		});
-	});		
+		$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");
+		$('#action').val('addExam');
+		$('#save').val('Save');
+		// $("#examModal").on("shown.bs.modal", function () { 
+		// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
+		// 	$('#action').val('addExam');
+		// 	$('#save').val('Save');
+		// });
+	});	
+
+	
 	
 	$("#examListing").on('click', '.update', function(){
 		var id = $(this).attr("id");
