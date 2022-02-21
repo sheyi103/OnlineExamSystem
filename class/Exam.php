@@ -98,16 +98,15 @@ class Exam {
 		
 		if($this->exam_title) {
 
-
 			$stmt = $this->conn->prepare("
 			INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question, marks_per_right_answer,marks_per_wrong_answer,status) VALUES(?,?,?,?,?,?,?)");
 		
-			$this->exam_title = htmlspecialchars(strip_tags($this->exam_title));			
-			$this->duration = htmlspecialchars(strip_tags($this->duration));
-			$this->total_question = htmlspecialchars(strip_tags($this->total_question));
-			$this->marks_per_right_answer = htmlspecialchars(strip_tags($this->marks_per_right_answer));
-			$this->marks_per_wrong_answer = htmlspecialchars(strip_tags($this->marks_per_wrong_answer));
-			$this->status = htmlspecialchars(strip_tags($this->status));			
+			// $this->exam_title = htmlspecialchars(strip_tags($this->exam_title));			
+			// $this->duration = htmlspecialchars(strip_tags($this->duration));
+			// $this->total_question = htmlspecialchars(strip_tags($this->total_question));
+			// $this->marks_per_right_answer = htmlspecialchars(strip_tags($this->marks_per_right_answer));
+			// $this->marks_per_wrong_answer = htmlspecialchars(strip_tags($this->marks_per_wrong_answer));
+			// $this->status = htmlspecialchars(strip_tags($this->status));			
 			
 			$stmt->bind_param("ississs", $_SESSION["userid"], $this->exam_title, $this->duration, $this->total_question, $this->marks_per_right_answer, $this->marks_per_wrong_answer, $this->status);
 			$result = $stmt->execute();	
