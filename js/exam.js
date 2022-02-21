@@ -65,9 +65,7 @@ $(document).ready(function(){
 		event.preventDefault();
 		$('#save').attr('disabled','disabled');
 		var formData = $(this).serialize();
-		console.log(formData);
-
-		var xhr = $.ajax({
+		$.ajax({
 			url:"exam_action.php",
 			method:"POST",
 			data:formData,
@@ -76,12 +74,8 @@ $(document).ready(function(){
 				$('#examModal').modal('hide');				
 				$('#save').attr('disabled', false);
 				examRecords.ajax.reload();
-			},
-		error: function(){
-			alert("Error");
-		}
+			}
 		})
-		console.log=(xhr);
 	});		
 
 	$("#examListing").on('click', '.delete', function(){
