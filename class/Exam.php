@@ -97,8 +97,11 @@ class Exam {
 		 log_action("INSIDE INSERT " . $this->exam_title);
 		
 		if($this->exam_title) {
+			$queryInsert = "
+				INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question, marks_per_right_answer,marks_per_wrong_answer, status) VALUES(?,?,?,?,?,?,?)";				
+			$stmt = $this->conn->prepare($queryInsert);
 
-			$stmt = $this->conn->prepare("INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question,marks_per_right_answer,marks_per_wrong_answer,status) VALUES(?,?,?,?,?,?,?)");
+			// $stmt = $this->conn->prepare("INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question,marks_per_right_answer,marks_per_wrong_answer,status) VALUES(?,?,?,?,?,?,?)");
 		
 			// $this->exam_title = htmlspecialchars(strip_tags($this->exam_title));			
 			// $this->duration = htmlspecialchars(strip_tags($this->duration));
