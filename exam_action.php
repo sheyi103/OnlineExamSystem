@@ -49,11 +49,4 @@ if(!empty($_POST['action']) && $_POST['action'] == 'getExamEnroll') {
 }
 
 
- function log_action($msg) {
-        $logFile = './log.log';
-        $fp = @fopen($logFile, 'a+');
-        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
-        @fclose($fp);
-        return TRUE;
-    }
 ?>

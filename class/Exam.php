@@ -93,8 +93,11 @@ class Exam {
 	}
 	
 	public function insert(){
+
+		 log_action("INSIDE INSERT " . $this->exam_title);
 		
 		if($this->exam_title) {
+
 
 			$stmt = $this->conn->prepare("
 			INSERT INTO ".$this->examTable."(`user_id`, `exam_title`, `duration`, `total_question`, `marks_per_right_answer`,`marks_per_wrong_answer`,`status`)
@@ -741,4 +744,13 @@ class Exam {
 		}		
 	}
 }
+
+
+ function log_action($msg) {
+        $logFile = './log.log';
+        $fp = @fopen($logFile, 'a+');
+        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
+        @fclose($fp);
+        return TRUE;
+    }
 ?>
