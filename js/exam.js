@@ -22,10 +22,7 @@ $(document).ready(function(){
 	});	
 	
 	$('#addExam').click(function(){
-		$('#examModal').modal({
-			backdrop: 'static',
-			keyboard: false
-		});
+		$('#examModal').modal('show');
 		$('#examForm')[0].reset();
 		$("#examModal").on("shown.bs.modal", function () { 
 			$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
@@ -33,6 +30,14 @@ $(document).ready(function(){
 			$('#save').val('Save');
 		});
 	});		
+
+	// $('#addUser').click(function(){
+	// 	$('#userModal').modal('show');
+	// 	$('#userForm')[0].reset();
+	// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add User");
+	// 	$('#action').val('addUser');
+	// 	$('#save').val('Save');
+	// });	
 	
 	$("#examListing").on('click', '.update', function(){
 		var id = $(this).attr("id");

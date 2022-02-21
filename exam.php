@@ -64,7 +64,7 @@ include('inc/header.php');
 					</div>
 					<div class="modal-body">
 						<div class="form-group"
-							<label for="project" class="control-label">Examm Title</label>
+							<label for="project" class="control-label">Exam Title</label>
 							<input type="text" class="form-control" id="exam_title" name="exam_title" placeholder="Exam title" required>			
 						</div>						
 						
