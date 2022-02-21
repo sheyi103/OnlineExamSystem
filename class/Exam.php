@@ -94,7 +94,8 @@ class Exam {
 	
 	public function insert(){
 
-		 log_action("INSIDE INSERT " . $this->exam_title);
+		//  log_action("INSIDE INSERT " . $this->exam_title);
+		var_dump($this->exam_title);
 		
 		if($this->exam_title) {
 			$queryInsert = "
