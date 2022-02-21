@@ -17,6 +17,7 @@ if(!empty($_POST['action']) && $_POST['action'] == 'getExam') {
 }
 
 if(!empty($_POST['action']) && $_POST['action'] == 'addExam') {	
+	echo "working";
 	$exam->exam_title = $_POST["exam_title"];    
 	$exam->duration = $_POST["exam_duration"];
 	$exam->total_question = $_POST["total_question"];
