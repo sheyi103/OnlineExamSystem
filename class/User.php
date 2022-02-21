@@ -20,7 +20,7 @@ class User {
 			$stmt->bind_param("sss", $this->email, $password);	
 			$stmt->execute();
 			$result = $stmt->get_result();	
-			log_action($result);
+			// log_action($result);
 
 			if($result->num_rows > 0){
 				$user = $result->fetch_assoc();
