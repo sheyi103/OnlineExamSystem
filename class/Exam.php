@@ -111,9 +111,11 @@ class Exam {
 			$this->status = htmlspecialchars(strip_tags($this->status));			
 			
 			$stmt->bind_param("ississs", $_SESSION["userid"], $this->exam_title, $this->duration, $this->total_question, $this->marks_per_right_answer, $this->marks_per_wrong_answer, $this->status);
-			
-			if($stmt->execute()){
-				return true;
+			$result = $stmt->execute();	
+			if($result){
+				 log_action("Successful ");
+			}else{
+				log_action("failed ");
 			}		
 		}
 	}
