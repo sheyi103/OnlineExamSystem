@@ -2,6 +2,14 @@
 include_once 'config/Database.php';
 include_once 'class/User.php';
 
+function log_action($msg) {
+        $logFile = './log.log';
+        $fp = @fopen($logFile, 'a+');
+        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
+        @fclose($fp);
+        return TRUE;
+    }
+
 $database = new Database();
 $db = $database->getConnection();
 
@@ -20,7 +28,7 @@ if(!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
 	$user->email = $_POST["email"];
 	$user->password = $_POST["password"];	
 
-	echo "user :".$user;
+	log_action($user);
 	// $user->loginType = $_POST["loginType"];
 	if($user->login()) {
 		if($_SESSION["role"] == 'admin') {
