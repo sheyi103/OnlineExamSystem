@@ -63,7 +63,6 @@ $(document).ready(function(){
 	
 	$("#examModal").on('submit','#examForm', function(event){
 		event.preventDefault();
-		console.log("insode the add examMODal method");
 		$('#save').attr('disabled','disabled');
 		var formData = $(this).serialize();
 		console.log(formData);
@@ -77,7 +76,10 @@ $(document).ready(function(){
 				$('#examModal').modal('hide');				
 				$('#save').attr('disabled', false);
 				examRecords.ajax.reload();
-			}
+			},
+		error: function(){
+			alert("Error");
+		}
 		})
 	});		
 
