@@ -98,8 +98,7 @@ class Exam {
 		// var_dump($this->exam_title);
 		
 		if($this->exam_title) {
-			$queryInsert = "
-				INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question, marks_per_right_answer,marks_per_wrong_answer, status) VALUES(?,?,?,?,?,?,?)";	
+			$queryInsert = "INSERT INTO ".$this->examTable."(user_id, exam_title, duration, total_question, marks_per_right_answer,marks_per_wrong_answer, status) VALUES(?,?,?,?,?,?,?)";	
 				var_dump($this->queryInsert);			
 			$stmt = $this->conn->prepare($queryInsert);
 
