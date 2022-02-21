@@ -25,7 +25,6 @@ if(!empty($_POST['action']) && $_POST['action'] == 'addExam') {
 	$exam->marks_per_wrong_answer = $_POST["marks_wrong_answer"];
 	$exam->status = $_POST["status"];
 	$exam->insert();
-	var_dump($exam);
 }
 
 if(!empty($_POST['action']) && $_POST['action'] == 'updateExam') {
