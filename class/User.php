@@ -14,13 +14,10 @@ class User {
 				SELECT * FROM ".$this->userTable." 
 				WHERE email = ? AND password = ?";			
 			$stmt = $this->conn->prepare($sqlQuery);
-			// $sr = serialize($stmt);
-			// log_action($sr);
 			$password = md5($this->password);			
 			$stmt->bind_param("sss", $this->email, $password);	
 			$stmt->execute();
 			$result = $stmt->get_result();	
-			// log_action($result);
 
 			if($result->num_rows > 0){
 				$user = $result->fetch_assoc();
@@ -188,11 +185,4 @@ class User {
 	}
 }
 
- function log_action($msg) {
-        $logFile = './log.log';
-        $fp = @fopen($logFile, 'a+');
-        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
-        @fclose($fp);
-        return TRUE;
-    }
 ?>
