@@ -25,16 +25,12 @@ $(document).ready(function(){
 		console.log("insode the add exam method");
 		$('#examModal').modal('show');
 		$('#examForm')[0].reset();
-		$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");
-		$('#action').val('addExam');
-		$('#save').val('Save');
-		// $("#examModal").on("shown.bs.modal", function () { 
-		// 	$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
-		// 	$('#action').val('addExam');
-		// 	$('#save').val('Save');
-		// });
+		$("#examModal").on("shown.bs.modal", function () { 
+			$('.modal-title').html("<i class='fa fa-plus'></i> Add Exam");			
+			$('#action').val('addExam');
+			$('#save').val('Save');
+		});
 	});	
-
 	
 	
 	$("#examListing").on('click', '.update', function(){
@@ -67,8 +63,11 @@ $(document).ready(function(){
 	
 	$("#examModal").on('submit','#examForm', function(event){
 		event.preventDefault();
+		console.log("insode the add examMODal method");
 		$('#save').attr('disabled','disabled');
 		var formData = $(this).serialize();
+		console.log(formData);
+
 		$.ajax({
 			url:"exam_action.php",
 			method:"POST",
