@@ -20,7 +20,6 @@ if(!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
 	$user->email = $_POST["email"];
 	$user->password = $_POST["password"];	
 
-	log_action($user);
 	// $user->loginType = $_POST["loginType"];
 	if($user->login()) {
 		if($_SESSION["role"] == 'admin') {
