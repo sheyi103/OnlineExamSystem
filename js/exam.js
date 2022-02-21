@@ -67,7 +67,7 @@ $(document).ready(function(){
 		var formData = $(this).serialize();
 		console.log(formData);
 
-		$.ajax({
+		var xhr = $.ajax({
 			url:"exam_action.php",
 			method:"POST",
 			data:formData,
@@ -81,6 +81,7 @@ $(document).ready(function(){
 			alert("Error");
 		}
 		})
+		console.log=(xhr);
 	});		
 
 	$("#examListing").on('click', '.delete', function(){

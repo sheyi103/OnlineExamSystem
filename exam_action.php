@@ -17,7 +17,10 @@ if(!empty($_POST['action']) && $_POST['action'] == 'getExam') {
 }
 
 if(!empty($_POST['action']) && $_POST['action'] == 'addExam') {	
-	echo "working";
+	log_action("Working Post");
+	log_action($_POST["exam_title"]);
+	
+
 	$exam->exam_title = $_POST["exam_title"];    
 	$exam->duration = $_POST["exam_duration"];
 	$exam->total_question = $_POST["total_question"];
@@ -48,4 +51,13 @@ if(!empty($_POST['action']) && $_POST['action'] == 'getExamEnroll') {
 	$exam->exam_id = $_POST['exam_id'];
 	$exam->getExamEnroll();
 }
+
+
+ function log_action($msg) {
+        $logFile = './log.log';
+        $fp = @fopen($logFile, 'a+');
+        @fputs($fp, "[".date('Y-m-d H:i:s')."] ".$msg ."\n<=============================================>\n");
+        @fclose($fp);
+        return TRUE;
+    }
 ?>
