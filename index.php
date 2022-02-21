@@ -16,10 +16,10 @@ if($user->loggedIn()) {
 }
 
 $loginMessage = '';
-if(!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["loginType"]) && $_POST["loginType"]) {	
+if(!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"])) {	
 	$user->email = $_POST["email"];
 	$user->password = $_POST["password"];	
-	$user->loginType = $_POST["loginType"];
+	// $user->loginType = $_POST["loginType"];
 	if($user->login()) {
 		if($_SESSION["role"] == 'admin') {
 			header("Location: exam.php");	
@@ -29,7 +29,7 @@ if(!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password
 	} else {
 		$loginMessage = 'Invalid login! Please try again.';
 	}
-} else if (empty($_POST["login"]) || empty($_POST["email"]) || empty($_POST["password"])|| empty($_POST["loginType"])){
+} else if (empty($_POST["login"]) || empty($_POST["email"]) || empty($_POST["password"])){
 	$loginMessage = 'Enter email, pasword and select user type to login.';
 }
 include('inc/header.php');

@@ -9,19 +9,19 @@ class User {
     }	    
 	
 	public function login(){
-		if($this->email && $this->password && $this->loginType) {			
+		if($this->email && $this->password) {			
 			$sqlQuery = "
 				SELECT * FROM ".$this->userTable." 
-				WHERE email = ? AND password = ? AND role= ?";			
+				WHERE email = ? AND password = ?";			
 			$stmt = $this->conn->prepare($sqlQuery);
 			$password = md5($this->password);			
-			$stmt->bind_param("sss", $this->email, $password, $this->loginType);	
+			$stmt->bind_param("sss", $this->email, $password);	
 			$stmt->execute();
 			$result = $stmt->get_result();			
 			if($result->num_rows > 0){
 				$user = $result->fetch_assoc();
 				$_SESSION["userid"] = $user['id'];
-				$_SESSION["role"] = $this->loginType;
+				$_SESSION["role"] = $user['role'];
 				$_SESSION["name"] = $user['first_name']." ".$user['last_name'];					
 				return 1;		
 			} else {
