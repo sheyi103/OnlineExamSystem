@@ -71,7 +71,7 @@ include('inc/header.php');
 						</div>						
 					</div>						
 				</form>  
-				<p>
+				<!-- <p>
 				Admin Login<br>
 				Email: admin@bbc.com<br>
 				Password: 123				
@@ -80,7 +80,7 @@ include('inc/header.php');
 				User Login<br>
 				Email: vas@bbc.com<br>
 				Password: 123
-				</p>
+				</p> -->
 			</div>                     
 		</div>  
 	</div>       
