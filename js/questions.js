@@ -2,7 +2,7 @@ $(document).ready(function(){
 	var questionsRecords = $('#questionsListing').DataTable({
 		"lengthChange": false,
 		"processing":true,
-		// "serverSide":true,		
+		"serverSide":true,		
 		"bFilter": false,
 		'serverMethod': 'post',		
 		"order":[],
@@ -18,10 +18,8 @@ $(document).ready(function(){
 				"orderable":false,
 			},
 		],
-		"pageLength": 5
+		"pageLength": 10
 	});	
-
-	console.log(questionsRecords);
 	
 	$('#addQuestions').click(function(){
 		$('#questionsModal').modal({

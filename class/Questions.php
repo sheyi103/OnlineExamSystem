@@ -24,9 +24,9 @@ class Questions {
 			$sqlQuery .= ' ORDER BY questions.id ASC ';
 		}
 		
-		if($_POST["length"] != -1){
-			$sqlQuery .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
-		}
+		// if($_POST["length"] != -1){
+		// 	$sqlQuery .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
+		// }
 		
 		$stmt = $this->conn->prepare($sqlQuery);
 		$stmt->bind_param("ii", $_SESSION["userid"], $this->examid);
