@@ -20,6 +20,8 @@ $(document).ready(function(){
 		],
 		"pageLength": 10
 	});	
+
+	console.log(questionsRecords);
 	
 	$('#addQuestions').click(function(){
 		$('#questionsModal').modal({
