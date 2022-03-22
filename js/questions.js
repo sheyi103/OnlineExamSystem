@@ -4,6 +4,9 @@ $(document).ready(function(){
 		"bProcessing":true,
 		"serverSide":true,		
 		"bFilter": false,
+		"bPaginate":true,
+		"sPaginationType":"full_numbers",
+		"iDisplayLength": 10,
 		'serverMethod': 'post',		
 		"order":[],
 		"ajax":{
