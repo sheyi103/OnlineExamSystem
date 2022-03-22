@@ -1,12 +1,9 @@
 $(document).ready(function(){	
 	var questionsRecords = $('#questionsListing').DataTable({
-		"lengthChange": false,
-		"processing":true,
+		"bLengthChange": false,
+		"bProcessing":true,
 		"serverSide":true,		
 		"bFilter": false,
-		"bPaginate":true,
-		"sPaginationType":"full_numbers",
-		"iDisplayLength": 10,
 		'serverMethod': 'post',		
 		"order":[],
 		"ajax":{
@@ -21,7 +18,7 @@ $(document).ready(function(){
 				"orderable":false,
 			},
 		],
-		// "pageLength": 10
+		"pageLength": 10
 	});	
 	
 	$('#addQuestions').click(function(){
