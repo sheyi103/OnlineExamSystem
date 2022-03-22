@@ -18,7 +18,7 @@ $(document).ready(function(){
 				"orderable":false,
 			},
 		],
-		"pageLength": 10
+		"pageLength": 5
 	});	
 	
 	$('#addQuestions').click(function(){
